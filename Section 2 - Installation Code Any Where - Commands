@@ -1,0 +1,83 @@
+Slide 3
+$ rvm install 2.5.3
+$ rvm list
+$ rvm --default use 2.5.3
+$ gem install rails -v 5.2.1
+$ ruby --version
+$ rvm --version
+$ rails --version
+
+Slide 4
+$ sudo apt-get update
+$ sudo apt-get install libpq-dev postgresql
+
+$ sudo su postgres -c psql
+
+CREATE ROLE cabox SUPERUSER LOGIN PASSWORD 'password';
+
+ctrl + c
+
+Slide 5
+$ rails _5.2.1_ new blog_app –d postgresql
+$ cd blog_app
+
+$ rails s --binding=0.0.0.0
+
+Slide 6
+$ git config --global user.name "Your Name"
+$ git config --global user.email "your email"
+$ git config --list
+
+$ git init
+
+$ git status
+$ git add .
+$ git commit –am ‘Initial Commit’
+
+Slide 7
+$ cat ~/.ssh/id_rsa.pub
+
+$ ssh-keygen –t rsa
+
+Slide 8
+$ git remote add origin https://github.com/<user>/<repo_name>.git
+$ git remote -v
+
+$ git push -u origin master
+
+Slide 9
+gem 'pg'
+gem 'rails_12factor', group: :production
+
+$ bundle install
+
+Slide 10
+default: &default
+  adapter: postgresql
+  encoding: UTF8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+development:
+  <<: *default
+  database: blog_app_um_development
+  username: 'cabox'
+  password: 'password'
+  #host: localhost
+  #port: 5432
+  #schema_search_path: myapp,sharedapp,public
+  #min_messages: notice
+test:
+  <<: *default
+  database: blog_app_um_test
+  username: 'cabox'
+  password: 'password'
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+
+Slide 11
+$ rails db:create
+$ rails db:migrate
+$ cp config/database.yml config/database.yml.example
+
+# Ignore database and application configuration
+/config/database.yml

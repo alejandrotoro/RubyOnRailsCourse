@@ -11,7 +11,7 @@ if ENV["RAILS_LOG_TO_STDOUT"].present?
   config.logger = ActiveSupport::TaggedLogging.new(logger)
 end
 
-ruby "2.5.3"
+ruby "2.6.1"
 
 Slide 5
 $ git remote add heroku <remote_url>
@@ -22,4 +22,17 @@ $ git push heroku master
 $ heroku run rake db:migrate
 
 release: rake db:migrate
+
+Slide 7:
+Ubuntu:
+$ sudo apt update 
+$ sudo apt install redis-server
+Open the config file with:
+$ sudo nano /etc/redis/redis.conf
+And change 'supervised on' to 'supervised systemd'
+$ sudo systemctl restart redis.service
+
+gem 'redis'
+gem 'puma'
+bundle install
 

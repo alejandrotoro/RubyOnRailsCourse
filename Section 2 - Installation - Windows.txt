@@ -1,0 +1,65 @@
+Slide 3:
+curl http://installrails.com/update_rubygems.rb | ruby
+gem install rails --no-ri --no-rdoc
+rails --version
+
+Slide 4:
+mkdir rails_projects
+rails new blog_app –d postgresql
+cd blog_app
+
+Slide 6:
+rails db:create
+
+Slide 7:
+rails s
+In a browser type localhost:3000
+
+Slide 8:
+git config --global user.name "Alejandro Toro”
+git config --global user.email “altose87@gmail.com”
+git config --list
+
+git init
+
+git status
+git add .
+git commit -m 'Initial commit'
+
+Slide 9:
+ssh-keygen –t rsa
+vim ~/.ssh/id_rsa.pub
+
+Slide 10:
+NOTE: Change <user> and <repo_name> for yours
+git remote add origin https://github.com/<user>/<repo_name>.git
+git remote -v
+
+git push -u origin master
+
+Slide 11:
+Add this to your Gemfile:
+gem 'rails_12factor', group: :production
+
+In the console run:
+bundle install
+
+Slide 12:
+cp config/database.yml config/database.yml.example
+
+Add this to .ignore file
+# Ignore database.yml file
+/config/database.yml
+
+In the console run:
+git rm -r --cached .
+git add .
+git commit -m 'Ignoring files'
+git push origin master
+
+Slide 13:
+Add to the Gemfile:
+gem 'mini_racer', platform: :ruby
+
+If necessary add this to the config/boot.rb file
+ENV['EXECJS_RUNTIME'] = 'Node'

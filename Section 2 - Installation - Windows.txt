@@ -17,7 +17,7 @@ In a browser type localhost:3000
 
 Slide 8:
 git config --global user.name "Alejandro Toro"
-git config --global user.email “altose87@gmail.com”
+git config --global user.email "altose87@gmail.com"
 git config --list
 
 git init
